@@ -1,0 +1,43 @@
+.form-control:focus {
+  border-color: #ced4da !important;
+  outline: 0;
+  box-shadow: none !important;
+}
+
+.form-floating > label {
+  transition: all 0.15s;
+  padding: 1rem;
+  padding-left: 1.5rem;
+}
+
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label,
+.form-floating > .form-select ~ label {
+  opacity: 1;
+  transform: translateY(-0.8rem) translateX(1.5rem);
+  background-color: white;
+  padding: 0;
+  max-height: 40%;
+  height: 20px;
+}
+
+.form-floating > .form-control:focus,
+.form-floating > .form-control:not(:placeholder-shown) {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  padding-left: 1.5rem;
+}
+
+body.night-mode .form-floating > .form-control:focus ~ label,
+body.night-mode .form-floating > .form-control:not(:placeholder-shown) ~ label,
+body.night-mode .form-floating > .form-select ~ label {
+  background-color: black;
+}
+
+body.night-mode .form-control {
+  color: white;
+}
+
+body.night-mode .form-control:focus {
+  color: white;
+}
