@@ -47,19 +47,7 @@ const staticText = {
         {"link": 'https://www.ergoplatform.org/', "title": "Ergo Platform"},
         {"link": 'https://www.ergoforum.org/', "title": "Ergo Forum"},
     ],
-    PAGE_SIZE: 12,
-    ERG_SCALE: 1000000000,
-    DAY_CONVERSION_SCALE: 720,
-    FILE_SIZE_LIMITATION: 150000,
-    UPLOAD_API_URL: 'https://ergoutilsupload.azurewebsites.net/ipfs/',
-    FILE_URL_PREVIEW: 'https://cloudflare-ipfs.com/ipfs/',
-    FILE_TO_SEND_PREFIX: 'ipfs://',
-    winnerStateType: 'winner',
-    charityStateType: 'charity',
-    ticketStateType: 'ticket',
-    descriptionLimit: 250,
-    deadlineLimit: 262800,
-    donationTickets: [5, 10, 20, 30]
+    ERG_SCALE: 1000000000
 }
 const SHARE_INFO = [
     {title: "Telegram", share: (url) => (`https://t.me/share/url?url=${url}&text=Ergo Raffle`)},
@@ -70,9 +58,10 @@ const HOUR_BLOCKS_COUNT = 30;
 const DAY_BLOCK_COUNT = 720;
 const MINUTE_BLOCK_COUNT = 0.5;
 const FILE_SIZE_LIMITATION = 150000;
-const UPLOAD_API_URL = 'https://ergoutilsupload.azurewebsites.net/ipfs/';
-const FILE_URL_PREVIEW = 'https://cloudflare-ipfs.com/ipfs/';
-const FILE_TO_SEND_PREFIX = 'ipfs://';
+const UPLOAD_API_URL = 'https://tmpfiles.org/api/v1/upload';
+const FILE_URL_PREVIEW_BEFORE_IPFS = 'https://tmpfiles.org/dl/';
+const FILE_TO_SEND_PREFIX = 'https://tmpfiles.org/';
+const TMP_PREFIX = 'tmpfile:'
 const TICKET_PRICES = [0.25, 0.5, 1, 3, 5];
 const DEADLINE_LIMIT = 365 * DAY_BLOCK_COUNT;
 const ERG_FACTOR = 1000000000;
@@ -96,8 +85,9 @@ export {
     MINUTE_BLOCK_COUNT,
     FILE_SIZE_LIMITATION,
     UPLOAD_API_URL,
-    FILE_URL_PREVIEW,
+    FILE_URL_PREVIEW_BEFORE_IPFS,
     FILE_TO_SEND_PREFIX,
+    TMP_PREFIX,
     TICKET_PRICES,
     DEADLINE_LIMIT,
     ERG_FACTOR,

@@ -2,7 +2,6 @@ import { memo, useState } from "react";
 import * as constant from "../../statics";
 import preview from '../../assets/img/preview.png';
 import { toast } from "react-toastify";
-import { FILE_SIZE_LIMITATION } from "../../statics";
 
 const isFileImage = (file) => {
     return file && file['type'].split('/')[0] === 'image';
@@ -25,9 +24,12 @@ const RaffleImgFileUploader = ({setValid, setValue, url}) => {
                 return fetch(constant.UPLOAD_API_URL, {
                     method: 'POST',
                     body: form,
+                }).catch(res => {
+                    console.log(res)
+                    toast(res)
                 }).then(res => res.json()).then(res => {
                     debugger
-                    setValue(`ipfs://${res.value.cid}`)
+                    setValue(`${constant.TMP_PREFIX}${res.data.url.substring(constant.FILE_TO_SEND_PREFIX.length)}`)
                     setLoading(false)
                 })
             }
@@ -46,7 +48,7 @@ const RaffleImgFileUploader = ({setValid, setValue, url}) => {
                             onChange={upload_file}/>
                     </label>
                     <img
-                        src={url ? url.replace(constant.FILE_TO_SEND_PREFIX, constant.FILE_URL_PREVIEW) : preview}
+                        src={url ? `${constant.FILE_URL_PREVIEW_BEFORE_IPFS}${url.substring(constant.TMP_PREFIX.length)}` : preview}
                         className='image-preview'
                         alt='raffle image preview'/>
                 </div>

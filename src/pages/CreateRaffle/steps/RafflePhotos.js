@@ -32,6 +32,11 @@ const RafflePhotos = ({setValid, init, setValue}) => {
                 <h3 className="step-title mb-4">
                     Upload Up to 4 Photos.
                 </h3>
+                <div className="alert alert-warning mb-4" role="alert">
+                    Please note: If you want your images to be included,
+                    you must create your raffle within 1 hour after uploading them.
+                    Otherwise, the images won't be displayed in your raffle.
+                </div>
                 <div className="row">
                     {imgs.map((img, index) => <RaffleImgFileUploader
                             setValue={(url) => set_image_index(index, url)}
